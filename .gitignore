@@ -1,0 +1,110 @@
+# https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
+
+############################################
+# Visual Studio / .NET
+############################################
+
+## User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## User-specific files (VS 2022)
+.vs/
+
+## Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]rm/
+[Aa]rm64/
+bld/
+[Bb]uild/
+
+## Visual Studio cache / temp
+*.VC.db
+*.VC.VC.opendb
+*.cache
+*.log
+*.tmp
+*.temp
+*.svclog
+
+############################################
+# ASP.NET MVC 5 / Web
+############################################
+
+## IIS Express
+.iisexpress/
+
+## Web.config transforms (keep base Web.config)
+Web.config.transform
+Web.Debug.config
+Web.Release.config
+
+## Published output
+publish/
+Published/
+
+############################################
+# NuGet
+############################################
+
+## NuGet packages (classic MVC 5 projects)
+packages/
+*.nupkg
+*.snupkg
+.nuget/NuGet.Config
+.nuget/NuGet.targets
+.nuget/NuGet.exe
+
+############################################
+# Resharper / Rider / Code Analysis
+############################################
+
+_ReSharper*/
+*.DotSettings.user
+.idea/
+
+############################################
+# Test results
+############################################
+
+TestResults/
+*.trx
+
+############################################
+# Logs & runtime data
+############################################
+
+*.log
+logs/
+App_Data/*.mdf
+App_Data/*.ldf
+
+############################################
+# OS files
+############################################
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+############################################
+# Optional: keep this ignored unless explicitly needed
+############################################
+
+# Entity Framework migrations local DB
+*.mdf
+*.ldf
