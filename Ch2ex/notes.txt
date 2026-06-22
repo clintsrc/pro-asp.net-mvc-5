@@ -1,0 +1,8 @@
+Use template: ASP.NET Web Application (.NET Framework)
+Select the latest .NET v4.8
+There is no longer an option for an 'empty' solution, just accept the minimal boilerplate that it provides.
+
+
+Controllers handle incoming requests: they are C# classes that inherit from the built-in...
+using System.Web.Mvc;  // Controller base class
+Action method: public methods invoked by a web URL to perform an action
