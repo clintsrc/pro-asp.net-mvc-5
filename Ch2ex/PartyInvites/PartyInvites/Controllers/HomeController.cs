@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;   // Controller base class
 
 // MVC: Models (data and business logic), Views (UI HTML rendering), Controllers (routes traffic: receives input
-//  requests, fetches from the Models, forwards to Views for rendering)
+//  requests, fetches from the Models, forwards to Views for rendering).
+//  The Razor engine renders the View
 
 // IIS Express is a lightweight version of IIS that ships with VisualStudio to run and test web apps locally.
 //  Just click the IIS Express button with the browser fo your choice selected. It automatically stops when you close the browser.
@@ -36,6 +38,7 @@ namespace PartyInvites.Controllers
         //     return View();
         // }
 
+
         // 2.2
         // This example returns a string instead of HTML
         // public string Index()
@@ -43,8 +46,19 @@ namespace PartyInvites.Controllers
         //     return "Hello World";
         // }
 
+
         // 2.3
         // A view provides an HTML response
+        // To add Views to Action methods: Right-click method name directly in the code editor, Add View
+        //   Common | MVC | View, Add
+        //   View Name: Follow the convention to set this to the name of the action method that the view will be associated with (Index here)
+        //   Template: set to Empty (without model)
+        //   Options:
+        //   Create as a partial view: disabled (default)
+        //   Use a layout page: disabled
+        //   Click Add
+        // This will create the new View file at: Views/Home/Index.cshtml
+        // The convention is that the view has the name of the action method and is contained in a folder named after the controller: /Views/Home/Index.cshtml
         public ViewResult Index()
         {
             // The View method returns a ViewResult
