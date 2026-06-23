@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;   // Controller base class
@@ -37,9 +38,17 @@ namespace PartyInvites.Controllers
 
         // 2.2
         // This example returns a string instead of HTML
-        public string Index()
+        // public string Index()
+        // {
+        //     return "Hello World";
+        // }
+
+        // 2.3
+        // A view provides an HTML response
+        public ViewResult Index()
         {
-            return "Hello World";
+            // The View method returns a ViewResult
+            return View();
         }
     }
 
