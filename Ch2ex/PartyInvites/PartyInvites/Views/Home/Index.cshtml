@@ -1,6 +1,6 @@
 ﻿<!--
     2.4
-    The Razor view engine interprets this expression. It processes the contents of the View and generates the HTML 
+    The Razor view engine interprets the at- expressions. It processes the contents of the View and generates the HTML 
     to send to the browser. The simple Razor expression here indicates that no layout (HTML template) is used
 //-->
 @{
@@ -17,7 +17,10 @@
 <body>
     <div>
         <!-- 2.5 Add some text here to display on the page -->
-        Hello World (from the view)
+        <!-- Hello World (from the view) //-->
+
+        <!-- 2.7 Using the ViewBag object //-->
+        @ViewBag.Greeting World (from the view)
     </div>
 </body>
 </html>

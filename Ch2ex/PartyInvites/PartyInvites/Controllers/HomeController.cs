@@ -48,6 +48,7 @@ namespace PartyInvites.Controllers
 
 
         // 2.3
+        // 2.4-5 (see the Home/Index.cshtml file)
         // A view provides an HTML response
         // To add Views to Action methods: Right-click method name directly in the code editor, Add View
         //   Common | MVC | View, Add
@@ -59,9 +60,24 @@ namespace PartyInvites.Controllers
         //   Click Add
         // This will create the new View file at: Views/Home/Index.cshtml
         // The convention is that the view has the name of the action method and is contained in a folder named after the controller: /Views/Home/Index.cshtml
+        // public ViewResult Index()
+        // {
+        //     // The View method returns a ViewResult
+        //     return View();
+        // }
+
+
+        // 2.6
+        // 2.7 (see the Home/Index.cshtml file)
+        // The ViewBag object takes arbitrary properties and values that are passed from the controller to a view.
+        //   It's a little like localStorage, but it's server-side and only persistent for the life of the request.
         public ViewResult Index()
         {
-            // The View method returns a ViewResult
+            int hour = DateTime.Now.Hour;
+            
+            // The ViewBag attribute names are arbitrary.           
+            ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
+
             return View();
         }
     }
