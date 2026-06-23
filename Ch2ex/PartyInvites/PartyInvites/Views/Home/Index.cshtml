@@ -16,11 +16,26 @@
 </head>
 <body>
     <div>
-        <!-- 2.5 Add some text here to display on the page -->
-        <!-- Hello World (from the view) //-->
-
-        <!-- 2.7 Using the ViewBag object //-->
         @ViewBag.Greeting World (from the view)
+        <!-- 2.8 Display a placeholder for details of a party //-->
+        <p>
+            We're going to have an exciting party.<br />
+            (To do: sell it better. Add pictures or something.)
+        </p>
+
+        <!-- 2.10
+                Add a link to the RSVP Form
+
+                Html.ActionLink is an HTML helper method:
+                Param1: the link text
+                Param2: action when the link is clicked
+
+                This example "RSVP" link points to a form (Action) that doesn't exist yet: http://host/Home/RsvpForm
+                Each action method has its own URL, and MVC uses the ASP.NET routing system to translate these URLs into actions.
+
+                Other built-in helper methods provide text inputs, checkboxes, selections, etc.
+            //-->
+        @Html.ActionLink("RSVP", "RsvpForm")
     </div>
 </body>
 </html>
