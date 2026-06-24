@@ -3,15 +3,25 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Dynamic;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Remoting.Lifetime;
+using System.Runtime.Remoting.Messaging;
 using System.Security.Claims;
 using System.Security.Policy;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.Security;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
+using Antlr.Runtime.Misc;
+using Microsoft.Ajax.Utilities;
+using PartyInvites.Models;
+using static System.Collections.Specialized.BitVector32;
 using static System.Net.Mime.MediaTypeNames;
 
 
@@ -19,29 +29,35 @@ namespace PartyInvites.Controllers
 {
     public class HomeController : Controller
     {
-
-        // 2.8 (see the Home/Index.cshtml file)
-
-        // 2.9 The model (or domain model) represents real world objects, processes, and rules that define the subject (domain) of the app.
-        //  It contsins C# domain objects  that define the domain and the methods that manipulate them.
-        //  Views and Controllers present the domain to the clients. An MVC app starts with a well-designed model to which controllers and views are added.
-        //
-        //  Model classes are in the Models folder by convention
-        //  To create a new model in Solution Explorer: Right-click Models | Add | Class
-        //  File name: GuestResponse.cs
-        //  Add to create the class.
-        //  (See the Models\GuestResponse.cs file)
-        //
-        // 2.10 see Views\Home\Index.cshtml
-
-        // This example object stores, validates, and confirms RSVPs
         public ViewResult Index()
         {
             int hour = DateTime.Now.Hour;
             
-            // The ViewBag attribute names are arbitrary.           
             ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
 
+            return View();
+        }
+
+
+        // 2.11
+        // An Action method here for /Home/RsvpForm view
+        //
+        // To create a strongly typed view for the RsvpForm Action method:
+        //
+        // *** Build the project first *** to ensure the GuestResponse class model is compiled for the strongly typeed view to use
+        //
+        // Solution Explorer: Right-click RsvpForm method here in the code editor:
+        // Add | Add View
+        // View Name: RsvpForm
+        // Template: Empty   (NOTE: not 'Empty (without model)')
+        // Model Class: GuestResponse
+        // Leave the View Options options disabled (default)
+        // Add to create the view
+        //
+
+        // 2.12-13 (see Views/Home/RvspForm.cshtml)
+        public ViewResult RsvpForm()
+        {
             return View();
         }
     }

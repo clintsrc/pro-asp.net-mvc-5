@@ -1,0 +1,60 @@
+﻿<!-- 2.12
+  This form was automatically generated with this At-model Razor expression (PartyInvites.Models.GuestResponse). It is the key to a strongly typed view
+-->
+@model PartyInvites.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RsvpForm</title>
+</head>
+<body>
+    <!-- 2.13
+        This RsvpForm will edit GuestResponse model objects
+        Note the Html helper methods to manipulate text boxes and drop down list input elements.
+
+        For example, because the form is strongly typed, this TextBoxFor helper method:
+        Html.TextBoxFor(x => x.Phone)
+
+        generates the HTML for an input element, sets the type parameter to text, and sets the id and name attributes to Phone, e.g.
+        <input id="Phone" name="Phone" type="text" value="" />
+
+        BeginForm generates an HTML form element configured to post back to the action method: it will post back to the same URL as this requested from by default when no parameters are specified.
+        When BeginForm is wrapped in a using statement, the form is automatically closed when the code block ends (similar to the way 'using' clears a C# object in a standard cs script)
+
+
+        NOTE:
+        By default, Visual Studio may attempt to launch a URL associated with the currently active view or other resource when debugging.
+
+        To always open a specific start page instead (for example /, Home/Index, or Account/Login):
+
+        In Solution Explorer, right-click the project and select Properties.
+        Select the Web tab.
+        Under Start Action, choose Specific Page.
+        Enter the desired URL path, or leave it blank to start at the application root (/).
+    //-->
+    @using (Html.BeginForm())
+    {
+        <p>Your name: @Html.TextBoxFor(x => x.Name) </p>
+        <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
+        <p>Your phone: @Html.TextBoxFor(x => x.Phone)</p>
+        <p>
+            Will you attend?
+            @Html.DropDownListFor(x => x.WillAttend, new[] {
+            new SelectListItem() {Text = "Yes, I'll be there",
+            Value = bool.TrueString},
+            new SelectListItem() {Text = "No, I can't come",
+            Value = bool.FalseString}
+            }, "Choose an option")
+        </p>
+        <input type="submit" value="Submit RSVP" />
+    }
+
+</body>
+</html>
