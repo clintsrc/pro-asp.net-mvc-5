@@ -1,4 +1,5 @@
-﻿<!-- 2.12
+﻿<!--
+  2.12
   This form was automatically generated with this At-model Razor expression (PartyInvites.Models.GuestResponse). It is the key to a strongly typed view
 -->
 @model PartyInvites.Models.GuestResponse
@@ -13,6 +14,17 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>RsvpForm</title>
+    <!--
+        2.19
+        See Content/Styles.css
+        Import the custom stylesheet for unique validation class styling
+           (NOTE: the editor lets you drag-and-drop css files into the code view
+           so that the editor can add this link reference for you)
+        - The error messages will appear in red text
+        - The input boxes will have a red border and light red background when validation fails
+    -->
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+
 </head>
 <body>
     <!-- 2.13
@@ -41,6 +53,7 @@
     //-->
     @using (Html.BeginForm())
     {
+        @Html.ValidationSummary() <!-- 2.18 When validation fails, this will display the errors as list tems in the form //-->
         <p>Your name: @Html.TextBoxFor(x => x.Name) </p>
         <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
         <p>Your phone: @Html.TextBoxFor(x => x.Phone)</p>
@@ -55,6 +68,5 @@
         </p>
         <input type="submit" value="Submit RSVP" />
     }
-
 </body>
 </html>

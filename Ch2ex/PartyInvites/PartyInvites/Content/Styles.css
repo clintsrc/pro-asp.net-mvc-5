@@ -1,0 +1,36 @@
+﻿/*
+    2.19
+    To add a new custom style sheet: right-click the Content folder (by convention), Add | Style Sheet: Styles"
+    
+    The validation helper classes render the page, and add properties like this for input errors:
+    <input class="input-validation-error"...
+
+    These rules will take advantage of the validation HTML classes: it overrides the default (bootstrap.css) rules.
+
+    2.19 see Views/RsvpForm.cshtml to link the stylesheet to the page.
+*/
+body {
+    /* sitewide global styles go here*/
+}
+
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}

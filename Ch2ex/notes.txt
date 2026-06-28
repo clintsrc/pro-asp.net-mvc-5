@@ -1,3 +1,15 @@
+===
+Creating new MVC projects:
+
+NOTE: The book uses VisualStudio 2013. I'm on VS2022: here is an approximation of what the author describes
 Use template: ASP.NET Web Application (.NET Framework)
 Select the latest .NET v4.8
 There is no longer an option for an 'empty' solution, just accept the minimal boilerplate that it provides.
+
+===
+Start:
+The published examples are: Chapter NN
+My working examples are ChNNex
+  - The commit history has the listing number (all begin from 2.1, the first couple of commit messages were mistakes)
+  - I clean the example listing notes as I move forward to avoid massive note clutter!
+The notes for each commit start in the Home Controller: Controllers/HomeController.cs

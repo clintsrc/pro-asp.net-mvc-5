@@ -1,0 +1,34 @@
+﻿@model PartyInvites.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body>
+    <div>
+    <!--
+        2.15
+        The Razor at-Model specifies the strongly typed domain model.
+        The values are accessible through Razor by using the Model.PropertyName syntax
+
+        2.16 see Models/GuestResponse.cs
+    //-->
+        <h1>Thank you, @Model.Name!</h1>
+        @if (Model.WillAttend == true)
+        {
+            @:It's great that you're coming. The drinks are already in the fridge!
+        }
+        else
+        {
+            @:Sorry to hear that you can't make it, but thanks for letting us know.
+        }
+    </div>
+</body>
+</html>
