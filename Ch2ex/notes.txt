@@ -5,11 +5,22 @@ NOTE: The book uses VisualStudio 2013. I'm on VS2022: here is an approximation o
 Use template: ASP.NET Web Application (.NET Framework)
 Select the latest .NET v4.8
 There is no longer an option for an 'empty' solution, just accept the minimal boilerplate that it provides.
+bootstrap is preinstalled with the template (a newer version than the book specifies)
 
-===
+====
 Start:
 The published examples are: Chapter NN
 My working examples are ChNNex
   - The commit history has the listing number (all begin from 2.1, the first couple of commit messages were mistakes)
   - I clean the example listing notes as I move forward to avoid massive note clutter!
 The notes for each commit start in the Home Controller: Controllers/HomeController.cs
+
+NuGet:
+NuGet UI: Tools | Library Package Manager | Manage NuGet Packages for Solution
+NuGet CLI: Tools | Library Package Manager | Package Manager Console
+Example bootstrap install:
+Download the package and add it to the project:
+e.g. latest:
+Install-Package bootstrap
+e.g. v3.0.0:
+Install-Package -version 3.0.0 bootstrap

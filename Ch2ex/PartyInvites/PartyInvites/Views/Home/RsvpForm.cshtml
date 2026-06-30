@@ -1,72 +1,63 @@
-﻿<!--
-  2.12
-  This form was automatically generated with this At-model Razor expression (PartyInvites.Models.GuestResponse). It is the key to a strongly typed view
--->
-@model PartyInvites.Models.GuestResponse
+﻿@model PartyInvites.Models.GuestResponse
 
 @{
     Layout = null;
 }
 
 <!DOCTYPE html>
+<!--
+    2.22
+    Styling with bootstrap
 
+    NOTE: the book uses Bootstrap 3 and bootstrap-theme.css, but in later versions the themes were all moved into the main bootstrap.css file
+    The VS2022 MVC template already includes bootstrap 4 by default.
+
+    2.23 see Views/Home/Thanks.cshtml
+//-->
 <html>
 <head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" /> <!-- import bootstrap //-->
     <meta name="viewport" content="width=device-width" />
     <title>RsvpForm</title>
-    <!--
-        2.19
-        See Content/Styles.css
-        Import the custom stylesheet for unique validation class styling
-           (NOTE: the editor lets you drag-and-drop css files into the code view
-           so that the editor can add this link reference for you)
-        - The error messages will appear in red text
-        - The input boxes will have a red border and light red background when validation fails
-    -->
     <link href="~/Content/Styles.css" rel="stylesheet" />
 
 </head>
 <body>
-    <!-- 2.13
-        This RsvpForm will edit GuestResponse model objects
-        Note the Html helper methods to manipulate text boxes and drop down list input elements.
+    <div class="card border-success">   <!-- NOTE: bootstrap v4+ uses cards (instead of panels) //-->
+        <div class="card-header text-center bg-success text-white">
+            <h4>RSVP</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+                <div class="form-group">
+                    <label>Your name:</label>
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Your email:</label>
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Your phone:</label>
+                    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Will you attend?</label>
+                    @Html.DropDownListFor(x => x.WillAttend, new[] {
+                        new SelectListItem() {Text = "Yes, I'll be there",
+                            Value = bool.TrueString},
+                        new SelectListItem() {Text = "No, I can't come",
+                            Value = bool.FalseString}
+                    }, "Choose an option", new { @class = "form-control" })
+                </div>
 
-        For example, because the form is strongly typed, this TextBoxFor helper method:
-        Html.TextBoxFor(x => x.Phone)
-
-        generates the HTML for an input element, sets the type parameter to text, and sets the id and name attributes to Phone, e.g.
-        <input id="Phone" name="Phone" type="text" value="" />
-
-        BeginForm generates an HTML form element configured to post back to the action method: it will post back to the same URL as this requested from by default when no parameters are specified.
-        When BeginForm is wrapped in a using statement, the form is automatically closed when the code block ends (similar to the way 'using' clears a C# object in a standard cs script)
-
-
-        NOTE:
-        By default, Visual Studio may attempt to launch a URL associated with the currently active view or other resource when debugging.
-
-        To always open a specific start page instead (for example /, Home/Index, or Account/Login):
-
-        In Solution Explorer, right-click the project and select Properties.
-        Select the Web tab.
-        Under Start Action, choose Specific Page.
-        Enter the desired URL path, or leave it blank to start at the application root (/).
-    //-->
-    @using (Html.BeginForm())
-    {
-        @Html.ValidationSummary() <!-- 2.18 When validation fails, this will display the errors as list tems in the form //-->
-        <p>Your name: @Html.TextBoxFor(x => x.Name) </p>
-        <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
-        <p>Your phone: @Html.TextBoxFor(x => x.Phone)</p>
-        <p>
-            Will you attend?
-            @Html.DropDownListFor(x => x.WillAttend, new[] {
-            new SelectListItem() {Text = "Yes, I'll be there",
-            Value = bool.TrueString},
-            new SelectListItem() {Text = "No, I can't come",
-            Value = bool.FalseString}
-            }, "Choose an option")
-        </p>
-        <input type="submit" value="Submit RSVP" />
-    }
+                <div class="text-center">
+                    <input class="btn btn-success" type="submit" value="Submit RSVP" />
+                </div>
+            }
+        </div>
+    </div>
 </body>
 </html>

@@ -3,21 +3,41 @@
 }
 
 <!DOCTYPE html>
+<!--
+    2.21
+    Apply some simple Bootstrap styling to the page using bootstrap's predefined css classes (http://getbootstrap.com)
 
+    NOTE: the book uses Bootstrap 3 and bootstrap-theme.css, but in later versions the themes were all moved into the main bootstrap.css file
+    The VS2022 MVC template already includes bootstrap 4 by default.
+
+    2.22 see Views/Home/RsvpForm.cshtml
+//-->
 <html>
 <head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" /> <!-- import bootstrap //-->
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <!-- style the buttons and background color //-->
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none
+        }
+
+        body {
+            background-color: #F1F1F1;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        @ViewBag.Greeting World (from the view)
-        <p>
-            We're going to have an exciting party.<br />
-            (To do: sell it better. Add pictures or something.)
-        </p>
-
-        @Html.ActionLink("RSVP", "RsvpForm")
+    <div class="text-center">
+        <!-- bootstrap used here //-->
+        <h2>We're going to have an exciting party!</h2>
+        <h3>And you are invited</h3>
+        <div class="btn btn-success">
+            <!-- bootstrap used here //-->
+            @Html.ActionLink("RSVP Now", "RsvpForm")
+        </div>
     </div>
 </body>
 </html>

@@ -5,30 +5,63 @@
 }
 
 <!DOCTYPE html>
+<!--
+    2.23
+    Add some bootstrap styling
+    NOTE: the book uses Bootstrap 3 and bootstrap-theme.css, but in later versions the themes were all moved into the main bootstrap.css file
+    The VS2022 MVC template already includes bootstrap 4 by default.
 
+    2.24
+    Add support for a quick-n-dirty send email
+-->
 <html>
 <head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" /> <!-- 2.23 import bootstrap -->
     <meta name="viewport" content="width=device-width" />
     <title>Thanks</title>
+    <style>
+        body {
+            background-color: #F1F1F1;
+        }
+    </style>
 </head>
 <body>
-    <div>
-    <!--
-        2.15
-        The Razor at-Model specifies the strongly typed domain model.
-        The values are accessible through Razor by using the Model.PropertyName syntax
-
-        2.16 see Models/GuestResponse.cs
-    //-->
-        <h1>Thank you, @Model.Name!</h1>
-        @if (Model.WillAttend == true)
+    <!-- 2.24 send the answer using a simple WebMail helper. A more elegant solution would be to use an action method (covered in Ch3)  
+        NOTE: You need to fill in the placeholders with you smtp info for a working example  -->
+    @{
+        try
         {
-            @:It's great that you're coming. The drinks are already in the fridge!
+            WebMail.SmtpServer = "smtp.example.com";
+            WebMail.SmtpPort = 587;
+            WebMail.EnableSsl = true;
+            WebMail.UserName = "mySmtpUsername";
+            WebMail.Password = "mySmtpPassword";
+            WebMail.From = "rsvps@example.com";
+            WebMail.Send("party-host@example.com", "RSVP Notification",
+            Model.Name + " is " + ((Model.WillAttend ?? false) ? "" :
+            "not")
+            + "attending");
         }
-        else
+        catch (Exception)
         {
-            @:Sorry to hear that you can't make it, but thanks for letting us know.
+            <!-- A separate View for the error message would be better for a production app -->
+            @:<b>Sorry - we couldn't send the email to confirm you</b>
         }
+    }
+<div class="text-center">
+    <!-- 2.23 center the text -->
+    <h1>Thank you, @Model.Name!</h1>
+        <div class="lead">
+            <!-- 2.23 text improvements -->
+            @if (Model.WillAttend == true)
+            {
+                @:It's great that you're coming. The drinks are already in the fridge!
+            }
+            else
+            {
+                @:Sorry to hear that you can't make it, but thanks for letting us know.
+            }
+        </div>
     </div>
 </body>
 </html>
