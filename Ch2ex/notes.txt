@@ -2,8 +2,14 @@
 Creating new MVC projects:
 
 NOTE: The book uses VisualStudio 2013. I'm on VS2022: here is an approximation of what the author describes
-Use template: ASP.NET Web Application (.NET Framework)
-Select the latest .NET v4.8
+1. New project
+2. Use template: ASP.NET Web Application (.NET Framework)
+3. Project name: PartyInvites
+   Location: <workarea root>\ChXex
+   Solution Name: PartyInvites
+   Framework: select the latest .NET Framework v4.8
+4. MVC
+
 There is no longer an option for an 'empty' solution, just accept the minimal boilerplate that it provides.
 bootstrap is preinstalled with the template (a newer version than the book specifies)
 

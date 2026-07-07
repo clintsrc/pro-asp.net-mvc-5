@@ -1,0 +1,23 @@
+I. The MVC architecture pattern (separation of concerns)
+   Models: data and it's movement and rules for manipulating the data
+   Views: UI rendering (stateless - fits well with HTTP requests/responses)
+   Controllers: process incoming requests, operate on the data, select the view to show to the user. Bridge the data and the view
+II. Domain models and repositories
+III. Creating loosely coupled systems using dependency injection (DI)
+IV. The basics of automated testing
+
+Domain Model: represented by C# types (classes, structs, etc.), collectively known as the domain types. Methods represent Operations, and domain rules are the logic in the methods / applying attributes.
+  Typically a database
+
+Controllers: C# classes, usually derived from the System.Web.Mvc.Controller class
+  - Each public method is an action method
+  - Action Method is associated with a configurable route to a URL
+  
+  HTTP request -> the controller's action method's URL -> operation on the Domain Model -> sent to a View to be rendered for the client (using the Razor view engine in MVC3+)
+
+
+SmartUI: Monolithic, antipattern. Business logic is scattered throughout. Brittle and difficult to refactor.
+3-tier: this is an improvement, but the UI is still tied to a click-and-event GUI framework, making it largely untestable.
+  A thinly disguised SmartUI without true separation of concerns, excessively complex.
+
+  
