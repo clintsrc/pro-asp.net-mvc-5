@@ -20,4 +20,11 @@ SmartUI: Monolithic, antipattern. Business logic is scattered throughout. Brittl
 3-tier: this is an improvement, but the UI is still tied to a click-and-event GUI framework, making it largely untestable.
   A thinly disguised SmartUI without true separation of concerns, excessively complex.
 
+Dependency Injection (DI, a common implementation of Inversion of Control (IoC)):
+- A class does not create its own dependencies: Interfaces decouple components
+- Dependencies are supplied from outside (injected).
+- The class interacts with its dependency through an interface (a contract), rather than directly with a concrete class.
+- Any class implementing that interface can be substituted (e.g., a production implementation or a test mock) without changing the consumer.
+- Available open source DIs: www.ninject.org, unity.codeplex.com (MS)
   
+[TODO]
