@@ -1,8 +1,17 @@
+VS (2025) Setup
+Tools | Get Tools and Features
+  Workloads:
+    ASP.NET and web development
+  Individual components:
+  * Development activities: ASP.NET and web development prerequisites
+    (The details show that it includes .NET Framework 4.8 SDK)
+  * .NET: .NET Framework project and item templates
+
 ===
 Creating new MVC projects:
 
-NOTE: The book uses VisualStudio 2013. I'm on VS2022: here is an approximation of what the author describes
-1. New project
+NOTE: The book uses VisualStudio 2013. I'm on VS2022/25: here is an approximation of what the author describes
+1. New Project/Solution
 2. Use template: ASP.NET Web Application (.NET Framework)
 3. Project name: PartyInvites
    Location: <workarea root>\ChXex
